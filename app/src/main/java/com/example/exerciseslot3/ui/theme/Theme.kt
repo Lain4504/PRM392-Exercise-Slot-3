@@ -9,45 +9,54 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalView
+import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = MartfuryPrimary,
+    secondary = MartfuryAccent,
+    tertiary = MartfuryOrange,
+    background = MartfuryBackground,
+    surface = MartfuryBackground,
+    onPrimary = MartfuryText,
+    onSecondary = MartfuryBackground,
+    onTertiary = MartfuryBackground,
+    onBackground = MartfuryText,
+    onSurface = MartfuryText
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = MartfuryPrimary,
+    secondary = MartfuryAccent,
+    tertiary = MartfuryOrange,
+    background = MartfuryBackground,
+    surface = MartfuryBackground,
+    onPrimary = MartfuryText,
+    onSecondary = MartfuryBackground,
+    onTertiary = MartfuryBackground,
+    onBackground = MartfuryText,
+    onSurface = MartfuryText
 )
 
 @Composable
 fun ExerciseSlot3Theme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = false, // Force light theme for martfury app
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false, // Disable dynamic color for consistent martfury branding
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
+    val colorScheme = LightColorScheme // Always use light theme for martfury app
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+    val view = LocalView.current
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = (view.context as Activity).window
+            window.statusBarColor = MartfuryHeaderYellow.toArgb()
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = true
+        }
     }
 
     MaterialTheme(

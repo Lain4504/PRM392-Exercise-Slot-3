@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">ExerciseSlot3</string>
+    <string name="app_name">martfury</string>
+    <string name="search_hint">I\'m shopping for...</string>
+    <string name="fabric_discount">FABRIC RED\nDISCOUNT 20% OFF</string>
+    <string name="iphone_title">iPhone 6+\n32Gb</string>
+    <string name="leather_bags">Unisex\nLeather\nBags</string>
+    <string name="featured_categories">Featured Categories</string>
+    <string name="electronics">Electronics</string>
+    <string name="clothing">Clothing</string>
+    <string name="computers">Computers</string>
+    <string name="home_kitchen">Home &amp; Kitchen</string>
+    <string name="health_beauty">Health &amp; Beauty</string>
+    <string name="jewelry_watch">Jewelry &amp; Watch</string>
+    <string name="featured_brands">Featured Brands</string>
+    <string name="home">Home</string>
+    <string name="categories">Categories</string>
+    <string name="explorer">Explorer</string>
+    <string name="cart">Cart</string>
+    <string name="profile">Profile</string>
+    <string name="shop_now">Shop Now</string>
 </resources>

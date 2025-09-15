@@ -7,4 +7,19 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!-- Martfury App Colors -->
+    <color name="martfury_orange">#FFF5A623</color>
+    <color name="martfury_yellow">#FFFFBE00</color>
+    <color name="martfury_background">#FFFFFFFF</color>
+    <color name="martfury_text">#FF000000</color>
+    <color name="martfury_secondary_text">#FF757575</color>
+    <color name="martfury_primary">#FFFFC107</color>
+    <color name="martfury_accent">#FFE65100</color>
+    <color name="martfury_red">#FFFF5252</color>
+    <color name="martfury_discount_red">#FFFF3B30</color>
+    <color name="martfury_gray">#FFF2F2F2</color>
+    <color name="martfury_light_gray">#FFEEEEEE</color>
+    <color name="martfury_bottom_nav">#FFFFFFFF</color>
+    <color name="martfury_header_yellow">#FFFFD500</color>
 </resources>
