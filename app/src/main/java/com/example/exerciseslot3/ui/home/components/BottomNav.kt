@@ -1,4 +1,4 @@
-package com.example.exerciseslot3.ui.home
+package com.example.exerciseslot3.ui.home.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.*

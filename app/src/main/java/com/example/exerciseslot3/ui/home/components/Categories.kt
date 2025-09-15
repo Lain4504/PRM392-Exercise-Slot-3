@@ -1,4 +1,4 @@
-package com.example.exerciseslot3.ui.home
+package com.example.exerciseslot3.ui.home.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -8,7 +8,6 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -59,8 +58,8 @@ fun FeaturedCategories() {
 
         LazyVerticalGrid(
             columns = GridCells.Fixed(3),
-            verticalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(16.dp),
-            horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
             userScrollEnabled = false,
             modifier = Modifier.height(250.dp)
         ) {
@@ -72,7 +71,7 @@ fun FeaturedCategories() {
         Spacer(modifier = Modifier.height(4.dp))
 
         Row(
-            horizontalArrangement = androidx.compose.foundation.layout.Arrangement.Center,
+            horizontalArrangement = Arrangement.Center,
             modifier = Modifier.fillMaxWidth()
         ) {
             repeat(2) { index ->
@@ -96,7 +95,7 @@ fun FeaturedCategories() {
 fun CategoryCard(category: CategoryItem) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = androidx.compose.foundation.layout.Arrangement.Center,
+        verticalArrangement = Arrangement.Center,
         modifier = Modifier
             .fillMaxWidth()
             .aspectRatio(1f)

@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.exerciseslot3.ui.home.HomePage
+import com.example.exerciseslot3.ui.productdetail.ProductDetailPage
 import com.example.exerciseslot3.ui.theme.ExerciseSlot3Theme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +22,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier,
                     color = colorResource(id = R.color.martfury_background)
-                ) { HomePage() }
+                ) { ProductDetailPage() }
             }
         }
     }
@@ -30,5 +31,5 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun HomePreview() {
-    ExerciseSlot3Theme { HomePage() }
+    ExerciseSlot3Theme { ProductDetailPage() }
 }

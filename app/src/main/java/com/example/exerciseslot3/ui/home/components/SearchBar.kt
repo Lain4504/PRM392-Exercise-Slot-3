@@ -1,4 +1,4 @@
-package com.example.exerciseslot3.ui.home
+package com.example.exerciseslot3.ui.home.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -7,6 +7,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,7 +34,7 @@ fun SearchBar() {
                 .padding(start = 12.dp, top = 10.dp, bottom = 10.dp, end = 12.dp)
         ) {
             if (query.isEmpty()) {
-                androidx.compose.material3.Text(
+                Text(
                     text = stringResource(id = R.string.search_hint),
                     color = Color(0x99000000)
                 )
