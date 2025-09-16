@@ -14,29 +14,23 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import com.example.exerciseslot3.R
+import androidx.compose.ui.platform.LocalContext
+import android.widget.Toast
 
 @Composable
 fun ProductDetailBottomBar() {
+    val context = LocalContext.current
     Surface(shadowElevation = 8.dp) {
         Column(modifier = Modifier.fillMaxWidth()) {
-            Box(
-                modifier = Modifier
-                    .padding(top = 6.dp)
-                    .width(60.dp)
-                    .height(6.dp)
-                    .clip(RoundedCornerShape(50))
-                    .background(colorResource(id = R.color.martfury_primary))
-                    .align(Alignment.CenterHorizontally)
-            )
 
             Row(
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp)
+                    .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 36.dp)
             ) {
                 OutlinedButton(
-                    onClick = {},
+                    onClick = { Toast.makeText(context, "Add to Cart clicked", Toast.LENGTH_SHORT).show() },
                     shape = RoundedCornerShape(10.dp),
                     modifier = Modifier.weight(1f)
                 ) {
@@ -45,16 +39,16 @@ fun ProductDetailBottomBar() {
                         contentDescription = null
                     )
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = "Add to Cart")
+                    Text(text = "Add to Cart", color = Color.Black)
                 }
 
                 Button(
-                    onClick = {},
+                    onClick = { Toast.makeText(context, "Buy Now clicked", Toast.LENGTH_SHORT).show() },
                     shape = RoundedCornerShape(10.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.martfury_primary)),
                     modifier = Modifier.weight(1f)
                 ) {
-                    Text(text = "Buy Now", color = Color.Black)
+                    Text(text = "Buy Now", color = Color.White)
                 }
             }
         }

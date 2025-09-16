@@ -1,6 +1,16 @@
 package com.example.exerciseslot3.ui.productdetail.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.foundation.clickable
+import androidx.compose.ui.platform.LocalContext
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,22 +29,40 @@ import com.example.exerciseslot3.R
 
 @Composable
 fun ProductImageGallery() {
+    val images = listOf(
+        R.drawable.iphone_1,
+        R.drawable.iphone_2,
+        R.drawable.iphone_3,
+        R.drawable.iphone_4
+    )
+
+    val listState = rememberLazyListState()
+    var currentIndex by remember { mutableStateOf(0) }
+    LaunchedEffect(listState.firstVisibleItemIndex) {
+        currentIndex = listState.firstVisibleItemIndex
+    }
+    val context = LocalContext.current
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .background(Color.White)
             .padding(horizontal = 16.dp, vertical = 16.dp)
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.ic_launcher_foreground),
-            contentDescription = "Product Image",
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(260.dp)
-                .clip(RoundedCornerShape(12.dp))
-                .align(Alignment.Center),
-            contentScale = ContentScale.Fit
-        )
+        LazyRow(state = listState) {
+            items(images.size) { index ->
+                Image(
+                    painter = painterResource(id = images[index]),
+                    contentDescription = "Product Image ${index + 1}",
+                    modifier = Modifier
+                        .fillParentMaxWidth()
+                        .height(480.dp)
+                        .clip(RoundedCornerShape(12.dp))
+                        .clickable { Toast.makeText(context, "Image ${index + 1} clicked", Toast.LENGTH_SHORT).show() },
+                    contentScale = ContentScale.Fit
+                )
+            }
+        }
 
         Box(
             contentAlignment = Alignment.Center,
@@ -44,7 +72,7 @@ fun ProductImageGallery() {
                 .background(Color(0x88000000))
                 .padding(horizontal = 8.dp, vertical = 4.dp)
         ) {
-            Text(text = "1/4", color = Color.White, fontSize = 12.sp)
+            Text(text = "${currentIndex + 1}/${images.size}", color = Color.White, fontSize = 12.sp)
         }
     }
 }
