@@ -14,7 +14,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.platform.LocalConfiguration
 import com.example.exerciseslot3.R
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.foundation.clickable
+import android.widget.Toast
 
 @Composable
 fun FeaturedBrands() {
@@ -28,26 +32,43 @@ fun FeaturedBrands() {
         Spacer(modifier = Modifier.height(16.dp))
 
         val brands = listOf(
-            "Hostlare", "Patel Pinch", "Panax Pharma"
+            "Hostlare", "Patel Pinch", "Panax Pharma", "Apex Gear",
+            "Nova Labs", "Zenith", "Aurora", "Nimbus"
         )
 
+        val config = LocalConfiguration.current
+        val screenWidth = config.screenWidthDp.dp
+        val spacing = 16.dp
+        val peek = 24.dp // small peek of the 4th item
+        val itemWidth = (screenWidth - peek - spacing * 3) / 3f
+
+        val context = LocalContext.current
+
         LazyRow(
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
+            horizontalArrangement = Arrangement.spacedBy(spacing),
+            contentPadding = PaddingValues(horizontal = 0.dp)
         ) {
             items(brands.size) { index ->
-                BrandCard(brands[index])
+                BrandCard(
+                    brandName = brands[index],
+                    modifier = Modifier
+                        .width(itemWidth)
+                        .height(120.dp)
+                        .clickable {
+                            Toast.makeText(context, "${brands[index]} clicked", Toast.LENGTH_SHORT).show()
+                        }
+                )
             }
         }
     }
 }
 
 @Composable
-fun BrandCard(brandName: String) {
+fun BrandCard(brandName: String, modifier: Modifier = Modifier) {
     Card(
         shape = RoundedCornerShape(8.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
-        modifier = Modifier
-            .size(120.dp),
+        modifier = modifier,
         border = BorderStroke(1.dp, colorResource(id = R.color.martfury_light_gray))
     ) {
         Box(

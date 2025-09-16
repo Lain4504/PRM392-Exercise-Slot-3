@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier,
                     color = colorResource(id = R.color.martfury_background)
-                ) { ProductDetailPage() }
+                ) { HomePage() }
             }
         }
     }
@@ -31,5 +31,5 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun HomePreview() {
-    ExerciseSlot3Theme { ProductDetailPage() }
+    ExerciseSlot3Theme { HomePage() }
 }

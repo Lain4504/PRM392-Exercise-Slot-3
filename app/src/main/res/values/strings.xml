@@ -11,6 +11,12 @@
     <string name="home_kitchen">Home &amp; Kitchen</string>
     <string name="health_beauty">Health &amp; Beauty</string>
     <string name="jewelry_watch">Jewelry &amp; Watch</string>
+    <string name="sports">Sports</string>
+    <string name="toys">Toys</string>
+    <string name="books">Books</string>
+    <string name="automotive">Automotive</string>
+    <string name="garden">Garden</string>
+    <string name="pets">Pets</string>
     <string name="featured_brands">Featured Brands</string>
     <string name="home">Home</string>
     <string name="categories">Categories</string>
