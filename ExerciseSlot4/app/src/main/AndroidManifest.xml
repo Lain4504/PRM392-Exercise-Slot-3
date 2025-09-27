@@ -23,6 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".QuizActivity"
+            android:exported="false"
+            android:label="Quiz"
+            android:theme="@style/Theme.ExerciseSlot4" />
     </application>
 
 </manifest>
